@@ -1,0 +1,13 @@
+one:
+  title: MyString
+  description: MyText
+  movie_length: MyString
+  director: MyString
+  rating: MyString
+
+two:
+  title: MyString
+  description: MyText
+  movie_length: MyString
+  director: MyString
+  rating: MyString

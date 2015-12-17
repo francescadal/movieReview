@@ -1,0 +1,3744 @@
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 10:50:14 -0500
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.5) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.5) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (99.4ms)
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  select sqlite_version(*)
+  [1m[36m (4.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateMovies (20141004155951)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "movie_length" varchar(255), "director" varchar(255), "rating" varchar(255), "created_at" datetime, "updated_at" datetime)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141004155951"]]
+  [1m[35m (2.7ms)[0m  commit transaction
+Migrating to DeviseCreateUsers (20141004160709)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime)
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141004160709"]]
+  [1m[36m (3.2ms)[0m  [1mcommit transaction[0m
+Migrating to AddUserIdToMovies (20141004160856)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (3.6ms)[0m  [1mALTER TABLE "movies" ADD "user_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141004160856"]]
+  [1m[36m (5.2ms)[0m  [1mcommit transaction[0m
+Migrating to AddAttachmentImageToMovies (20141004162450)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "movies" ADD "image_file_name" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "movies" ADD "image_content_type" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "movies" ADD "image_file_size" integer[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "movies" ADD "image_updated_at" datetime
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141004162450"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+Migrating to CreateReviews (20141004164958)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rating" integer, "comment" text, "created_at" datetime, "updated_at" datetime)
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141004164958"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+Migrating to AddUserIdToReviews (20141004165349)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "reviews" ADD "user_id" integer
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141004165349"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+Migrating to AddMovieIdToReviews (20141004170436)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "reviews" ADD "movie_id" integer
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141004170436"]]
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 10:53:04 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (1.4ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (12.1ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 4605ms (Views: 4571.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 10:53:08 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 10:53:08 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 10:53:08 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:08 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:08 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:08 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:08 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:08 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:08 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:09 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:09 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:09 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:09 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:09 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:09 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:09 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:09 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:09 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:09 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:09 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:09 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:09 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:09 -0500
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-12-17 10:53:13 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (2.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (99.5ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 232ms (Views: 228.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-12-17 10:53:41 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "user"=>{"email"=>"francescadalembert@yahoo.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (2.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'francescadalembert@yahoo.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 386ms (Views: 187.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:41 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:41 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:41 -0500
+
+
+Started POST "/users" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "user"=>{"email"=>"francescadalembert@yahoo.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'francescadalembert@yahoo.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.1ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 240ms (Views: 147.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:49 -0500
+
+
+Started POST "/users" for 127.0.0.1 at 2015-12-17 10:53:58 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "user"=>{"email"=>"francescadalembert@yahoo.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'francescadalembert@yahoo.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 243ms (Views: 135.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 10:53:59 -0500
+
+
+Started POST "/users" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "user"=>{"email"=>"francescadalembert@yahoo.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'francescadalembert@yahoo.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (3.6ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2015-12-17 15:54:18.541982"], ["email", "francescadalembert@yahoo.com"], ["encrypted_password", "$2a$10$rc7yv1TeDHXZUmzZ7eeHKO.4aupgA5.iYubY6xGwYY7jWGDi2immK"], ["updated_at", "2015-12-17 15:54:18.541982"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `current_sign_in_ip`
+Binary data inserted for `string` type on column `last_sign_in_ip`
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["current_sign_in_at", "2015-12-17 15:54:18.556197"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2015-12-17 15:54:18.556197"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-12-17 15:54:18.557532"]]
+  [1m[35m (2.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 118ms (ActiveRecord: 10.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (13.7ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 119ms (Views: 117.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 10:54:18 -0500
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2015-12-17 10:54:23 -0500
+Processing by MoviesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered movies/_form.html.erb (14.8ms)
+  Rendered movies/new.html.erb within layouts/application (20.2ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 193ms (Views: 131.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-12-17 10:54:26 -0500
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered devise/registrations/edit.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 142ms (Views: 139.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2015-12-17 10:54:31 -0500
+Processing by MoviesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered movies/_form.html.erb (6.2ms)
+  Rendered movies/new.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 146ms (Views: 143.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 10:54:37 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 116ms (Views: 114.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2015-12-17 10:54:42 -0500
+Processing by MoviesController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered movies/_form.html.erb (3.4ms)
+  Rendered movies/new.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 117ms (Views: 113.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/movies" for 127.0.0.1 at 2015-12-17 10:59:50 -0500
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "movie"=>{"title"=>"Creed", "description"=>"Awesome movie", "movie_length"=>"2:15", "director"=>"ryan coogler", "rating"=>"5"}, "commit"=>"Create Movie"}
+  [1m[36mUser Load (3.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "movie_length", "rating", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2015-12-17 15:59:51.043310"], ["description", "Awesome movie"], ["director", "ryan coogler"], ["movie_length", "2:15"], ["rating", "5"], ["title", "Creed"], ["updated_at", "2015-12-17 15:59:51.043310"], ["user_id", 1]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[33mMovie Store (99.3ms)[0m  {"id":1,"exception":["Faraday::ConnectionFailed","Connection refused - connect(2) for \"localhost\" port 9200"]}
+Connection refused - connect(2) for "localhost" port 9200
+Redirected to http://localhost:3000/movies/1
+Completed 302 Found in 188ms (Searchkick: 99.3ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (6.6ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC
+  Rendered movies/show.html.erb within layouts/application (15.0ms)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.8ms)
+Completed 200 OK in 348ms (Views: 323.1ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 10:59:51 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (164.2ms)
+
+
+Started GET "/assets/star-off.png" for 127.0.0.1 at 2015-12-17 10:59:52 -0500
+
+
+Started GET "/movies/1/reviews/new" for 127.0.0.1 at 2015-12-17 11:00:00 -0500
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered reviews/_form.html.erb (13.2ms)
+  Rendered reviews/new.html.erb within layouts/application (18.6ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 147ms (Views: 143.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 11:00:02 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC[0m
+  Rendered movies/show.html.erb within layouts/application (2.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 116ms (Views: 113.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 11:00:02 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.4ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.6ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (151.7ms)
+
+
+Started GET "/movies/1/edit" for 127.0.0.1 at 2015-12-17 11:00:14 -0500
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (1.3ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered movies/_form.html.erb (16.7ms)
+  Rendered movies/edit.html.erb within layouts/application (31.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 304ms (Views: 278.1ms | ActiveRecord: 1.9ms)
+
+
+Started PATCH "/movies/1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "movie"=>{"title"=>"Creed", "description"=>"Awesome movie, MIcheal B jordan is the bee's knees.", "movie_length"=>"2:15", "director"=>"ryan coogler", "rating"=>"5"}, "commit"=>"Update Movie", "id"=>"1"}
+  [1m[36mMovie Load (1.2ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  UPDATE "movies" SET "description" = ?, "updated_at" = ? WHERE "movies"."id" = 1  [["description", "Awesome movie, MIcheal B jordan is the bee's knees."], ["updated_at", "2015-12-17 16:00:43.236052"]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[33mMovie Store (23.1ms)[0m  {"id":1,"exception":["Faraday::ConnectionFailed","Connection refused - connect(2) for \"localhost\" port 9200"]}
+Connection refused - connect(2) for "localhost" port 9200
+Redirected to http://localhost:3000/movies/1
+Completed 302 Found in 86ms (Searchkick: 23.1ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (1.2ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC[0m
+  Rendered movies/show.html.erb within layouts/application (9.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered layouts/_header.html.erb (3.4ms)
+Completed 200 OK in 294ms (Views: 286.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 11:00:43 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (256.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 11:00:49 -0500
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+Completed 200 OK in 152ms (Views: 150.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 11:00:50 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (121.6ms)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2015-12-17 11:00:51 -0500
+Processing by MoviesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered movies/_form.html.erb (4.1ms)
+  Rendered movies/new.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 154ms (Views: 149.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 11:00:55 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 138ms (Views: 137.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 11:00:55 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (110.7ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 11:00:57 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC[0m
+  Rendered movies/show.html.erb within layouts/application (1.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 112ms (Views: 109.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 11:00:57 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (87.7ms)
+
+
+Started GET "/movies/1/edit" for 127.0.0.1 at 2015-12-17 11:01:00 -0500
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered movies/_form.html.erb (6.0ms)
+  Rendered movies/edit.html.erb within layouts/application (11.6ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 127ms (Views: 123.2ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/movies/1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "movie"=>{"title"=>"Creed", "description"=>"Awesome movie, MIcheal B jordan is the bee's knees.", "movie_length"=>"2:15", "director"=>"ryan coogler", "rating"=>"5", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f8545cd3d00 @tempfile=#<Tempfile:/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/RackMultipart20151217-6671-1cqfo2d>, @original_filename="creed.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"movie[image]\"; filename=\"creed.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Movie", "id"=>"1"}
+  [1m[36mMovie Load (3.0ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-6671-b89raf.jpeg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-6671-kqao1m.jpeg[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-6671-1xqgiqx.jpeg'
+  [1m[35m (0.3ms)[0m  rollback transaction
+  Rendered movies/_form.html.erb (16.8ms)
+  Rendered movies/edit.html.erb within layouts/application (23.4ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 593ms (Views: 214.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:08 -0500
+
+
+Started PATCH "/movies/1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "movie"=>{"title"=>"Creed", "description"=>"Awesome movie, MIcheal B jordan is the bee's knees.", "movie_length"=>"2:15", "director"=>"ryan coogler", "rating"=>"5"}, "commit"=>"Update Movie", "id"=>"1"}
+  [1m[36mMovie Load (2.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[33mMovie Store (8.4ms)[0m  {"id":1,"exception":["Faraday::ConnectionFailed","Connection refused - connect(2) for \"localhost\" port 9200"]}
+Connection refused - connect(2) for "localhost" port 9200
+Redirected to http://localhost:3000/movies/1
+Completed 302 Found in 17ms (Searchkick: 8.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC
+  Rendered movies/show.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 134ms (Views: 131.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 11:05:31 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.4ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (90.8ms)
+
+
+Started GET "/assets/star-off.png" for 127.0.0.1 at 2015-12-17 11:05:32 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 11:05:42 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 147ms (Views: 142.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 11:05:42 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (98.7ms)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2015-12-17 11:05:44 -0500
+Processing by MoviesController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered movies/_form.html.erb (6.7ms)
+  Rendered movies/new.html.erb within layouts/application (12.1ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 129ms (Views: 124.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 11:07:42 -0500
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (27.8ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+Completed 200 OK in 229ms (Views: 216.4ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 11:07:42 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (89.4ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 11:07:43 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC
+  Rendered movies/show.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 150ms (Views: 147.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 11:07:43 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (80.9ms)
+
+
+Started GET "/movies/1/edit" for 127.0.0.1 at 2015-12-17 11:07:45 -0500
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered movies/_form.html.erb (4.8ms)
+  Rendered movies/edit.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 160ms (Views: 157.4ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/movies/1" for 127.0.0.1 at 2015-12-17 11:07:56 -0500
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "movie"=>{"title"=>"Creed", "description"=>"Awesome movie, MIcheal B jordan is the bee's knees.", "movie_length"=>"2:15", "director"=>"ryan coogler", "rating"=>"5", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f8544b14a38 @tempfile=#<Tempfile:/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/RackMultipart20151217-6671-1jwura5>, @original_filename="creed.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"movie[image]\"; filename=\"creed.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Movie", "id"=>"1"}
+  [1m[35mMovie Load (5.5ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-6671-1op5vwo.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-6671-1yc66az.jpg[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-6671-1dl37mm.jpg'
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  Rendered movies/_form.html.erb (9.0ms)
+  Rendered movies/edit.html.erb within layouts/application (16.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 475ms (Views: 122.0ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 11:07:57 -0500
+
+
+Started PATCH "/movies/1" for 127.0.0.1 at 2015-12-17 11:13:08 -0500
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "movie"=>{"title"=>"Creed", "description"=>"Awesome movie, MIcheal B jordan is the bee's knees.", "movie_length"=>"2:15", "director"=>"ryan coogler", "rating"=>"5", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f8543f3ee20 @tempfile=#<Tempfile:/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/RackMultipart20151217-6671-1bs2jqi>, @original_filename="creed.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"movie[image]\"; filename=\"creed.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Movie", "id"=>"1"}
+  [1m[35mMovie Load (5.5ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-6671-vvlg44.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-6671-rw76o2.jpg[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-6671-1snps7b.jpg'
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  Rendered movies/_form.html.erb (19.1ms)
+  Rendered movies/edit.html.erb within layouts/application (24.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 544ms (Views: 240.2ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:09 -0500
+
+
+Started GET "/movies" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (12.8ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 197ms (Views: 191.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 11:13:14 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (120.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 11:13:46 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (2.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (0.6ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (43.9ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+Completed 200 OK in 492ms (Views: 451.5ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 11:13:47 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.6ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (17.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (134.5ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 11:13:53 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (2.2ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC[0m
+  Rendered movies/show.html.erb within layouts/application (2.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered layouts/_header.html.erb (2.6ms)
+Completed 200 OK in 109ms (Views: 99.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 11:13:53 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (111.0ms)
+
+
+Started GET "/assets/star-off.png" for 127.0.0.1 at 2015-12-17 11:13:53 -0500
+
+
+Started GET "/movies/1/edit" for 127.0.0.1 at 2015-12-17 11:13:58 -0500
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered movies/_form.html.erb (78.8ms)
+  Rendered movies/edit.html.erb within layouts/application (83.8ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 192ms (Views: 180.9ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/movies/1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "movie"=>{"title"=>"Creed", "description"=>"Awesome movie, MIcheal B jordan is the bee's knees.", "movie_length"=>"2:15", "director"=>"ryan coogler", "rating"=>"5", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f921ce48a58 @tempfile=#<Tempfile:/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/RackMultipart20151217-7659-1ajj4y5>, @original_filename="creed.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"movie[image]\"; filename=\"creed.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Movie", "id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-7659-1d0cchx.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-7659-1r3x32v.jpg[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-7659-1v3hl1o.jpg'
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered movies/_form.html.erb (6.6ms)
+  Rendered movies/edit.html.erb within layouts/application (12.9ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 253ms (Views: 118.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 11:14:05 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 11:20:30 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (3.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (2.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (49.7ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 592ms (Views: 532.9ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 11:20:31 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (15.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (144.8ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 11:20:47 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (1.0ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (2.5ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC[0m
+  Rendered movies/show.html.erb within layouts/application (12.5ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered layouts/_header.html.erb (4.5ms)
+Completed 200 OK in 223ms (Views: 183.3ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2015-12-17 11:20:47 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/var/rbenv/versions/2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (10.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (118.6ms)
+
+
+Started GET "/assets/star-off.png" for 127.0.0.1 at 2015-12-17 11:20:47 -0500
+
+
+Started GET "/movies/1/edit" for 127.0.0.1 at 2015-12-17 11:20:51 -0500
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered movies/_form.html.erb (106.1ms)
+  Rendered movies/edit.html.erb within layouts/application (111.3ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 220ms (Views: 206.4ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/movies/1" for 127.0.0.1 at 2015-12-17 11:21:01 -0500
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "movie"=>{"title"=>"Creed", "description"=>"Awesome movie, MIcheal B jordan is the bee's knees.", "movie_length"=>"2:15", "director"=>"ryan coogler", "rating"=>"5", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f9b83952ce0 @tempfile=#<Tempfile:/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/RackMultipart20151217-10335-1ofecjx>, @original_filename="creed.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"movie[image]\"; filename=\"creed.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Movie", "id"=>"1"}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-10335-1ggkz43.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-10335-yjzf91.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-10335-yjzf91.jpg[0]'
+Command :: convert '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-10335-yjzf91.jpg[0]' -auto-orient -resize "x600" -crop "400x600+371+0" +repage '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-10335-yjzf9120151217-10335-h03dzm'
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-10335-yjzf9120151217-10335-h03dzm'
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/01a8649e264e14d4215065fb3eee211220151217-10335-96t2n8.jpg'
+Binary data inserted for `string` type on column `image_content_type`
+  [1m[35mSQL (0.5ms)[0m  UPDATE "movies" SET "image_content_type" = ?, "image_file_name" = ?, "image_file_size" = ?, "image_updated_at" = ?, "updated_at" = ? WHERE "movies"."id" = 1  [["image_content_type", "image/jpeg"], ["image_file_name", "creed.jpg"], ["image_file_size", 84483], ["image_updated_at", "2015-12-17 16:21:01.901036"], ["updated_at", "2015-12-17 16:21:02.356588"]]
+  [1m[36m (8.5ms)[0m  [1mcommit transaction[0m
+  [1m[33mMovie Store (31.2ms)[0m  {"id":1,"exception":["Faraday::ConnectionFailed","Connection refused - connect(2) for \"localhost\" port 9200"]}
+Connection refused - connect(2) for "localhost" port 9200
+Redirected to http://localhost:3000/movies/1
+Completed 302 Found in 620ms (Searchkick: 31.2ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC[0m
+  Rendered movies/show.html.erb within layouts/application (4.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered layouts/_header.html.erb (3.4ms)
+Completed 200 OK in 137ms (Views: 134.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/assets/star-off.png" for 127.0.0.1 at 2015-12-17 11:21:02 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 11:21:13 -0500
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 115ms (Views: 114.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 11:21:17 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC
+  Rendered movies/show.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 110ms (Views: 107.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/1/edit" for 127.0.0.1 at 2015-12-17 11:21:20 -0500
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered movies/_form.html.erb (4.0ms)
+  Rendered movies/edit.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 123ms (Views: 121.1ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/movies/1" for 127.0.0.1 at 2015-12-17 11:22:05 -0500
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "movie"=>{"title"=>"Creed", "description"=>"Awesome movie, MIcheal B jordan is the bee's knees.", "movie_length"=>"2:15", "director"=>"ryan coogler", "rating"=>"5", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f9b836ffe98 @tempfile=#<Tempfile:/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/RackMultipart20151217-10335-14p8ph9>, @original_filename="creedpostersmall.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"movie[image]\"; filename=\"creedpostersmall.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Movie", "id"=>"1"}
+  [1m[35mMovie Load (3.3ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/b06e7283a07fe8e70b1c07d7e67d56d120151217-10335-o1hx7f.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/b06e7283a07fe8e70b1c07d7e67d56d120151217-10335-1ef4rla.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/b06e7283a07fe8e70b1c07d7e67d56d120151217-10335-1ef4rla.jpg[0]'
+Command :: convert '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/b06e7283a07fe8e70b1c07d7e67d56d120151217-10335-1ef4rla.jpg[0]' -auto-orient -resize "x600" -crop "400x600+2+0" +repage '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/b06e7283a07fe8e70b1c07d7e67d56d120151217-10335-1ef4rla20151217-10335-5u3j2r'
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/b06e7283a07fe8e70b1c07d7e67d56d120151217-10335-1ef4rla20151217-10335-5u3j2r'
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/b06e7283a07fe8e70b1c07d7e67d56d120151217-10335-18b46p4.jpg'
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "movies" SET "image_file_name" = ?, "image_file_size" = ?, "image_updated_at" = ?, "updated_at" = ? WHERE "movies"."id" = 1[0m  [["image_file_name", "creedpostersmall.jpg"], ["image_file_size", 753419], ["image_updated_at", "2015-12-17 16:22:05.974008"], ["updated_at", "2015-12-17 16:22:06.596325"]]
+[paperclip] deleting /Users/fancyfrannycesca/WDI/movie_review/public/system/movies/images/000/000/001/original/creed.jpg
+[paperclip] deleting /Users/fancyfrannycesca/WDI/movie_review/public/system/movies/images/000/000/001/medium/creed.jpg
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[33mMovie Store (7.2ms)[0m  {"id":1,"exception":["Faraday::ConnectionFailed","Connection refused - connect(2) for \"localhost\" port 9200"]}
+Connection refused - connect(2) for "localhost" port 9200
+Redirected to http://localhost:3000/movies/1
+Completed 302 Found in 821ms (Searchkick: 7.2ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 11:22:06 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.3ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC
+  Rendered movies/show.html.erb within layouts/application (5.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.8ms)
+Completed 200 OK in 161ms (Views: 156.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 11:22:06 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:06 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:06 -0500
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 11:22:06 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 11:22:06 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:06 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:06 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:06 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:06 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:06 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:06 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:07 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:07 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:07 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:07 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:07 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:07 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:07 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:07 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:07 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:07 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:07 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 11:22:07 -0500
+
+
+Started GET "/assets/star-off.png" for 127.0.0.1 at 2015-12-17 11:22:07 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 11:22:12 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 114ms (Views: 112.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/search?utf8=%E2%9C%93&search=captain+america" for 127.0.0.1 at 2015-12-17 11:22:27 -0500
+Processing by MoviesController#search as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"captain america"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 6ms
+
+Faraday::ConnectionFailed (Connection refused - connect(2) for "localhost" port 9200):
+  app/controllers/movies_controller.rb:7:in `search'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (111.7ms)
+
+
+Started GET "/movies/search?utf8=%E2%9C%93&search=creed" for 127.0.0.1 at 2015-12-17 11:22:58 -0500
+Processing by MoviesController#search as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"creed"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 41ms
+
+Faraday::ConnectionFailed (Connection refused - connect(2) for "localhost" port 9200):
+  app/controllers/movies_controller.rb:7:in `search'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.4ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (84.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 11:35:36 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (2.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (2.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (55.2ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+Completed 200 OK in 2254ms (Views: 2208.8ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 11:35:39 -0500
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-12-17 11:35:45 -0500
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered devise/registrations/edit.html.erb within layouts/application (85.3ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+Completed 200 OK in 190ms (Views: 188.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 11:35:52 -0500
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (13.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 146ms (Views: 142.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 11:35:55 -0500
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 142ms (Views: 141.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-12-17 11:36:06 -0500
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered devise/registrations/edit.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 209ms (Views: 190.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 11:42:18 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (7.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (50.0ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+Completed 200 OK in 359ms (Views: 327.1ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 15:31:21 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (2.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (2.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (48.7ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+Completed 200 OK in 511ms (Views: 468.4ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 15:31:22 -0500
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2015-12-17 15:31:36 -0500
+Processing by MoviesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered movies/_form.html.erb (92.4ms)
+  Rendered movies/new.html.erb within layouts/application (96.8ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 261ms (Views: 208.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 15:31:40 -0500
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 119ms (Views: 117.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 15:31:41 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (2.3ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC
+  Rendered movies/show.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 117ms (Views: 107.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/star-off.png" for 127.0.0.1 at 2015-12-17 15:31:41 -0500
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-12-17 15:32:06 -0500
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered devise/registrations/edit.html.erb within layouts/application (23.3ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 205ms (Views: 188.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 15:32:20 -0500
+Processing by MoviesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (11.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 155ms (Views: 152.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 15:32:22 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC
+  Rendered movies/show.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.9ms)
+Completed 200 OK in 141ms (Views: 137.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2015-12-17 15:32:25 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 104ms (Views: 103.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2015-12-17 15:32:31 -0500
+Processing by MoviesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered movies/_form.html.erb (3.4ms)
+  Rendered movies/new.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 115ms (Views: 112.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 15:35:28 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (2.3ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (31.3ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 522ms (Views: 478.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 15:35:29 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (1.3ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (35.9ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 282ms (Views: 269.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:10 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:11 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:11 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:11 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 15:36:11 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.6ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (29.9ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 266ms (Views: 254.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:00 -0500
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-12-17 15:37:07 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (2.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (100.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 213ms (Views: 208.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-12-17 15:37:30 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ssfRgbZjpza2VnSd5MVrEwjTkOV5/due6kiad4RR1/k=", "user"=>{"email"=>"Dalembert61@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (2.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'dalembert61@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (3.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-12-17 20:37:30.686377"], ["email", "dalembert61@gmail.com"], ["encrypted_password", "$2a$10$iTczCLE.IgNLqJMRdbK1T.FHy.hAWmzHGvBTs9a.KMCKtJpOvPoSy"], ["updated_at", "2015-12-17 20:37:30.686377"]]
+  [1m[35m (15.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `current_sign_in_ip`
+Binary data inserted for `string` type on column `last_sign_in_ip`
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 2  [["current_sign_in_at", "2015-12-17 20:37:30.713574"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2015-12-17 20:37:30.713574"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-12-17 20:37:30.715064"]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 202ms (ActiveRecord: 23.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 15:37:30 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (15.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 142ms (Views: 140.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 15:37:30 -0500
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 15:37:30 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:30 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:30 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:30 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 15:37:30 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:30 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:30 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:30 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:30 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:31 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:31 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:31 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:31 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:31 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:31 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:31 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:31 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:31 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:31 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:31 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:31 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 15:37:31 -0500
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2015-12-17 15:37:33 -0500
+Processing by MoviesController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered movies/_form.html.erb (15.8ms)
+  Rendered movies/new.html.erb within layouts/application (20.1ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 162ms (Views: 119.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/movies" for 127.0.0.1 at 2015-12-17 15:40:46 -0500
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ssfRgbZjpza2VnSd5MVrEwjTkOV5/due6kiad4RR1/k=", "movie"=>{"title"=>"Elf", "description"=>"One of the best holiday movies", "movie_length"=>"1:37", "director"=>"Jon Favreau", "rating"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fbbd489a840 @tempfile=#<Tempfile:/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/RackMultipart20151217-22972-hbdlc9>, @original_filename="elf.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"movie[image]\"; filename=\"elf.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Movie"}
+  [1m[36mUser Load (4.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/aab4b125bca447f96d4fe7920863a1ed20151217-22972-i6gytc.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/aab4b125bca447f96d4fe7920863a1ed20151217-22972-uirlq4.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/aab4b125bca447f96d4fe7920863a1ed20151217-22972-uirlq4.jpg[0]'
+Command :: convert '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/aab4b125bca447f96d4fe7920863a1ed20151217-22972-uirlq4.jpg[0]' -auto-orient -resize "400x" -crop "400x600+0+12" +repage '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/aab4b125bca447f96d4fe7920863a1ed20151217-22972-uirlq420151217-22972-1ch1lrw'
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/aab4b125bca447f96d4fe7920863a1ed20151217-22972-uirlq420151217-22972-1ch1lrw'
+  [1m[35m (0.2ms)[0m  begin transaction
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/aab4b125bca447f96d4fe7920863a1ed20151217-22972-dsin8u.jpg'
+Binary data inserted for `string` type on column `image_content_type`
+  [1m[36mSQL (4.5ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "image_content_type", "image_file_name", "image_file_size", "image_updated_at", "movie_length", "rating", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2015-12-17 20:40:47.046773"], ["description", "One of the best holiday movies"], ["director", "Jon Favreau"], ["image_content_type", "image/jpeg"], ["image_file_name", "elf.jpg"], ["image_file_size", 21693], ["image_updated_at", "2015-12-17 20:40:46.648899"], ["movie_length", "1:37"], ["rating", ""], ["title", "Elf"], ["updated_at", "2015-12-17 20:40:47.046773"], ["user_id", 2]]
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[33mMovie Store (46.2ms)[0m  {"id":2,"exception":["Faraday::ConnectionFailed","Connection refused - connect(2) for \"localhost\" port 9200"]}
+Connection refused - connect(2) for "localhost" port 9200
+Redirected to http://localhost:3000/movies/2
+Completed 302 Found in 616ms (Searchkick: 46.2ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/movies/2" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mReview Load (2.2ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 2  ORDER BY created_at DESC
+  Rendered movies/show.html.erb within layouts/application (10.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.2ms)
+Completed 200 OK in 166ms (Views: 154.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/assets/star-off.png" for 127.0.0.1 at 2015-12-17 15:40:47 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 15:41:10 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (33.4ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 256ms (Views: 243.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 15:41:13 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC[0m
+  Rendered movies/show.html.erb within layouts/application (4.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 135ms (Views: 130.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movies/1/reviews/new" for 127.0.0.1 at 2015-12-17 15:41:14 -0500
+Processing by ReviewsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered reviews/_form.html.erb (9.9ms)
+  Rendered reviews/new.html.erb within layouts/application (14.1ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 141ms (Views: 133.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/star-on.png" for 127.0.0.1 at 2015-12-17 15:41:16 -0500
+
+
+Started POST "/movies/1/reviews" for 127.0.0.1 at 2015-12-17 15:41:32 -0500
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ssfRgbZjpza2VnSd5MVrEwjTkOV5/due6kiad4RR1/k=", "review"=>{"rating"=>"4", "comment"=>"I liked it."}, "commit"=>"Create Review", "movie_id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "reviews" ("comment", "created_at", "movie_id", "rating", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)  [["comment", "I liked it."], ["created_at", "2015-12-17 20:41:32.809667"], ["movie_id", 1], ["rating", 4], ["updated_at", "2015-12-17 20:41:32.809667"], ["user_id", 2]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/movies/1
+Completed 302 Found in 12ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 15:41:32 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC[0m
+  [1m[35m (2.8ms)[0m  SELECT AVG("reviews"."rating") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = 1
+  Rendered movies/show.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 147ms (Views: 131.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:33 -0500
+
+
+Started GET "/movies/1/edit" for 127.0.0.1 at 2015-12-17 15:41:46 -0500
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.2ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered movies/_form.html.erb (8.4ms)
+  Rendered movies/edit.html.erb within layouts/application (14.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 135ms (Views: 131.6ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/movies/1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ssfRgbZjpza2VnSd5MVrEwjTkOV5/due6kiad4RR1/k=", "movie"=>{"title"=>"Creed", "description"=>"Awesome movie, MIcheal B jordan is the bee's knees.", "movie_length"=>"2:15", "director"=>"Ryan Coogler", "rating"=>"5"}, "commit"=>"Update Movie", "id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "movies" SET "director" = ?, "updated_at" = ? WHERE "movies"."id" = 1[0m  [["director", "Ryan Coogler"], ["updated_at", "2015-12-17 20:41:58.702020"]]
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[33mMovie Store (4.3ms)[0m  {"id":1,"exception":["Faraday::ConnectionFailed","Connection refused - connect(2) for \"localhost\" port 9200"]}
+Connection refused - connect(2) for "localhost" port 9200
+Redirected to http://localhost:3000/movies/1
+Completed 302 Found in 14ms (Searchkick: 4.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 1  ORDER BY created_at DESC
+  [1m[36m (0.2ms)[0m  [1mSELECT AVG("reviews"."rating") AS avg_id FROM "reviews"  WHERE "reviews"."movie_id" = 1[0m
+  Rendered movies/show.html.erb within layouts/application (2.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 139ms (Views: 136.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:58 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:59 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:59 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:59 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:59 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:59 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:59 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:59 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:59 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 15:41:59 -0500
+
+
+Started GET "/movies/search?utf8=%E2%9C%93&search=Elf" for 127.0.0.1 at 2015-12-17 15:42:23 -0500
+Processing by MoviesController#search as HTML
+  Parameters: {"utf8"=>"✓", "search"=>"Elf"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 3ms
+
+Faraday::ConnectionFailed (Connection refused - connect(2) for "localhost" port 9200):
+  app/controllers/movies_controller.rb:7:in `search'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (110.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 15:52:56 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (6.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (56.0ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 256ms (Views: 241.3ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 15:52:57 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 15:55:06 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (7.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (57.3ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 286ms (Views: 262.8ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-17 15:55:07 -0500
+Processing by MoviesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 161ms (Views: 159.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2015-12-17 15:59:32 -0500
+Processing by MoviesController#new as HTML
+  [1m[35mUser Load (7.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered movies/_form.html.erb (23.5ms)
+  Rendered movies/new.html.erb within layouts/application (33.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 333ms (Views: 286.4ms | ActiveRecord: 7.6ms)
+
+
+Started POST "/movies" for 127.0.0.1 at 2015-12-17 16:01:31 -0500
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "movie"=>{"title"=>"Home Alone", "description"=>"An 8-year old troublemaker must protect his home from a pair of burglars when he is accidentally left home alone by his family during Christmas vacation.", "movie_length"=>"1:43", "director"=>"Chris Columbus", "rating"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fbbd4a6bde0 @tempfile=#<Tempfile:/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/RackMultipart20151217-22972-11cdb8h>, @original_filename="homealone.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"movie[image]\"; filename=\"homealone.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Movie"}
+  [1m[36mUser Load (6.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/2523814557f014c4eab7847f7bb3eac220151217-22972-j0zw8n.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/2523814557f014c4eab7847f7bb3eac220151217-22972-1x9no3f.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/2523814557f014c4eab7847f7bb3eac220151217-22972-1x9no3f.jpg[0]'
+Command :: convert '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/2523814557f014c4eab7847f7bb3eac220151217-22972-1x9no3f.jpg[0]' -auto-orient -resize "x600" -crop "400x600+2+0" +repage '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/2523814557f014c4eab7847f7bb3eac220151217-22972-1x9no3f20151217-22972-1g2dmn2'
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/2523814557f014c4eab7847f7bb3eac220151217-22972-1x9no3f20151217-22972-1g2dmn2'
+  [1m[35m (0.2ms)[0m  begin transaction
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/2523814557f014c4eab7847f7bb3eac220151217-22972-1t6xibs.jpg'
+Binary data inserted for `string` type on column `image_content_type`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "image_content_type", "image_file_name", "image_file_size", "image_updated_at", "movie_length", "rating", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2015-12-17 21:01:32.246488"], ["description", "An 8-year old troublemaker must protect his home from a pair of burglars when he is accidentally left home alone by his family during Christmas vacation."], ["director", "Chris Columbus"], ["image_content_type", "image/jpeg"], ["image_file_name", "homealone.jpg"], ["image_file_size", 20582], ["image_updated_at", "2015-12-17 21:01:31.899583"], ["movie_length", "1:43"], ["rating", ""], ["title", "Home Alone"], ["updated_at", "2015-12-17 21:01:32.246488"], ["user_id", 1]]
+  [1m[35m (10.1ms)[0m  commit transaction
+  [1m[33mMovie Store (11.8ms)[0m  {"id":3,"exception":["Faraday::ConnectionFailed","Connection refused - connect(2) for \"localhost\" port 9200"]}
+Connection refused - connect(2) for "localhost" port 9200
+Redirected to http://localhost:3000/movies/3
+Completed 302 Found in 544ms (Searchkick: 11.8ms | ActiveRecord: 17.1ms)
+
+
+Started GET "/movies/3" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mReview Load (0.1ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 3  ORDER BY created_at DESC
+  Rendered movies/show.html.erb within layouts/application (9.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.1ms)
+Completed 200 OK in 185ms (Views: 182.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/assets/star-off.png" for 127.0.0.1 at 2015-12-17 16:01:32 -0500
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2015-12-17 16:01:36 -0500
+Processing by MoviesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered movies/_form.html.erb (8.0ms)
+  Rendered movies/new.html.erb within layouts/application (13.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 144ms (Views: 140.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/movies" for 127.0.0.1 at 2015-12-17 16:03:41 -0500
+Processing by MoviesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "movie"=>{"title"=>"Scrooged", "description"=>"A selfish, cynical T.V. executive is haunted by three spirits bearing lessons on Christmas Eve.", "movie_length"=>"1:41", "director"=>"Richard Donner", "rating"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fbbd1f74718 @tempfile=#<Tempfile:/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/RackMultipart20151217-22972-nmqtgt>, @original_filename="scrooged.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"movie[image]\"; filename=\"scrooged.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Movie"}
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/2a97df6fa543f14e1b07aa4646ad7fac20151217-22972-afnum5.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/2a97df6fa543f14e1b07aa4646ad7fac20151217-22972-rji8h3.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/2a97df6fa543f14e1b07aa4646ad7fac20151217-22972-rji8h3.jpg[0]'
+Command :: convert '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/2a97df6fa543f14e1b07aa4646ad7fac20151217-22972-rji8h3.jpg[0]' -auto-orient -resize "400x" -crop "400x600+0+0" +repage '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/2a97df6fa543f14e1b07aa4646ad7fac20151217-22972-rji8h320151217-22972-1j6wxnf'
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/2a97df6fa543f14e1b07aa4646ad7fac20151217-22972-rji8h320151217-22972-1j6wxnf'
+  [1m[35m (0.2ms)[0m  begin transaction
+Command :: file -b --mime '/var/folders/jv/txs_xxh94rj7nqw0n05g3kc40000gn/T/2a97df6fa543f14e1b07aa4646ad7fac20151217-22972-1ue1vua.jpg'
+Binary data inserted for `string` type on column `image_content_type`
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "image_content_type", "image_file_name", "image_file_size", "image_updated_at", "movie_length", "rating", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2015-12-17 21:03:42.072054"], ["description", "A selfish, cynical T.V. executive is haunted by three spirits bearing lessons on Christmas Eve."], ["director", "Richard Donner"], ["image_content_type", "image/jpeg"], ["image_file_name", "scrooged.jpg"], ["image_file_size", 17239], ["image_updated_at", "2015-12-17 21:03:41.791478"], ["movie_length", "1:41"], ["rating", ""], ["title", "Scrooged"], ["updated_at", "2015-12-17 21:03:42.072054"], ["user_id", 1]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[33mMovie Store (5.7ms)[0m  {"id":4,"exception":["Faraday::ConnectionFailed","Connection refused - connect(2) for \"localhost\" port 9200"]}
+Connection refused - connect(2) for "localhost" port 9200
+Redirected to http://localhost:3000/movies/4
+Completed 302 Found in 431ms (Searchkick: 5.7ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/movies/4" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mReview Load (0.4ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 4  ORDER BY created_at DESC
+  Rendered movies/show.html.erb within layouts/application (5.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.9ms)
+Completed 200 OK in 156ms (Views: 151.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/assets/star-off.png" for 127.0.0.1 at 2015-12-17 16:03:42 -0500
+
+
+Started GET "/movies/4/edit" for 127.0.0.1 at 2015-12-17 16:04:36 -0500
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mMovie Load (0.9ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered movies/_form.html.erb (22.1ms)
+  Rendered movies/edit.html.erb within layouts/application (30.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 305ms (Views: 271.9ms | ActiveRecord: 1.3ms)
+
+
+Started PATCH "/movies/4" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A1aLcR+xVvgDEYmJq69bE9jeZN4OYcNMCNbo8UhjCHo=", "movie"=>{"title"=>"Scrooged", "description"=>"A selfish, cynical T.V. executive is haunted by three spirits bearing lessons on Christmas Eve.", "movie_length"=>"1:41", "director"=>"Richard Donner", "rating"=>"fantastic"}, "commit"=>"Update Movie", "id"=>"4"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.6ms)[0m  [1mUPDATE "movies" SET "rating" = ?, "updated_at" = ? WHERE "movies"."id" = 4[0m  [["rating", "fantastic"], ["updated_at", "2015-12-17 21:04:55.171454"]]
+  [1m[35m (3.3ms)[0m  commit transaction
+  [1m[33mMovie Store (4.6ms)[0m  {"id":4,"exception":["Faraday::ConnectionFailed","Connection refused - connect(2) for \"localhost\" port 9200"]}
+Connection refused - connect(2) for "localhost" port 9200
+Redirected to http://localhost:3000/movies/4
+Completed 302 Found in 19ms (Searchkick: 4.6ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/movies/4" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT  "movies".* FROM "movies"  WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."movie_id" = 4  ORDER BY created_at DESC
+  Rendered movies/show.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 128ms (Views: 125.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/movies.css?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/jquery.raty.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/movies.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-12-17 16:04:55 -0500
+
+
+Started GET "/assets/star-off.png" for 127.0.0.1 at 2015-12-17 16:04:55 -0500

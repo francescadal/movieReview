@@ -1,0 +1,5 @@
+Movie review site
+
+
+Unreached Goals
+I wanted to be able to connect to the IMDB api. That is something i am going ot be working on implementing.
