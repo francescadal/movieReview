@@ -1,5 +1,6 @@
 Movie review site
-
+This app is built with rails also using views/layout. Everything is in the back-end repo 
 
 Unreached Goals
 I wanted to be able to connect to the IMDB api. That is something i am going ot be working on implementing.
+I want the users to be able to create reviews on other movies.This was part idea of love and part major internet help. (It was crunch time)
